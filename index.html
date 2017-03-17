@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>Simple Blogging Engine</title>
+	<link href="https://fonts.googleapis.com/css?family=Baloo+Bhaina" rel="stylesheet">
+	<link rel="stylesheet" type="text/css" href="style.css">
+</head>
+<body>
+	<nav>
+		<a href="https://github.com/mlignjatovic/MVC_Blogging_Engine">Go to source code</a>
+	</nav>
+	<main>
+		<section class="hero">
+				<p>MVC</p>
+			<h1>BLOGGING</h1>
+				<h3>engine</h3>
+		</section>
+		<section class="about">
+			<p>“MVC  Blogging Engine” is the simple blogging  engine written with Fat-Free PHP Framework. I used “original” MVC pattern and that means that  I tried to use pattern on an image below.</p>
+			<img src="img/pattern.png" alt="mvc">
+			<a href="https://github.com/mlignjatovic/MVC_Blogging_Engine">Go to source code</a>
+			<p>The Views are directly connected with Models and that communication is just for taking data <strong>FROM</strong> database. In this case, Views are not the templates, they  responsible for delegating right data to the right template and show the right template.</p>  
+			<p>Controllers are responsible for manipulating <strong>ON</strong> database data (insert,edit,delete...).</p>
+			<p>Models are places where actual logic behind Views and Controllers is taking place. Models are in direct connection with the database. </p>
+			<h2>Little about functionality</h2>
+			<p>I add tinymce for text processing.User can insert posts...</p>
+			<img src="img/insertPost.png">
+			<a href="https://github.com/mlignjatovic/MVC_Blogging_Engine">Go to source code</a>
+			<p>...Delete(if logged in as admin) or edit posts</p>
+			<img src="img/postlist1.png">
+			<a href="https://github.com/mlignjatovic/MVC_Blogging_Engine">Go to source code</a>
+			<p>Admin users can delete users and register new users.An editor can just see the list of users.</p>
+			<img src="img/users.png">
+			<a href="https://github.com/mlignjatovic/MVC_Blogging_Engine">Go to source code</a>
+			<p>Users can upload images and delete them.</p>
+			<p><i>Image names are inserted in the database and actual files are uploaded in the uploads folder.</i></p>
+			<img src="img/media.png">
+			<a href="https://github.com/mlignjatovic/MVC_Blogging_Engine">Go to source code</a>
+			<p>If you decide to try blogging engine on your local computer(not for production usage),download source code from <a id="inline" href="https://github.com/mlignjatovic/MVC_Blogging_Engine">HERE</a>. In the config folder in config.ini file change database credentials to match your database. Then upload a SQL file to your database. If everything went ok, you can now login.
+			User: admin , password: 123456 or User: editor, password: 123456.</p>
+			<p>You will notice that there is not too much design. Templates are separated from logic so it is very easy to edit them. They are in Ui/ folder. Templates are made with Uikit so you have it at your disposal.</p>
+		</section>
+	</main>
+</body>
+</html>

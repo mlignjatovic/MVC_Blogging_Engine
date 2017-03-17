@@ -1,0 +1,30 @@
+<main>
+	<section class="uk-container uk-container-center uk-margin-medium-top">
+				<repeat group="{{ @result }}" value="{{ @item }}">
+				<article class="uk-article tm-article uk-align-center">
+				<div class="uk-card uk-card-default uk-margin-medium uk-padding-small">
+					<div class="uk-card-header">
+						<h2 class="uk-article-title"><a href="{{@BASE}}/post/{{ @item.post_id  }}">{{ @item.post_title  }}</a></h2>
+					</div>	
+					<div class="uk-card-body">
+				    	<p>{{ @item.post_text | raw  }}...</p>
+				    </div>
+				     <div>
+			            <a class="uk-button uk-button-text" href="{{@BASE}}/post/{{ @item.post_id  }}">Read more</a>
+			        </div>
+			     </div>
+		</article>	     
+				</repeat>		
+		<div class="uk-text-center">
+			<a href="{{@BASE}}/{{ @links[0]  }}">First</a>
+			<repeat group="{{ @links }}" value="{{ @item }}">
+				
+				<check if="{{ @item>'1' && @item < count(@links) }}">
+			    	<a href="{{@BASE}}/{{ @item  }}">{{ @item  }}</a>
+			    </check>
+			    
+			</repeat>
+			<a href="{{@BASE}}/{{ count(@links) }}">Last</a>
+		</div>	
+	</section>
+</main>

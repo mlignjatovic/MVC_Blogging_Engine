@@ -1,0 +1,10 @@
+.tm-newpost {
+	margin: 0 auto;
+}
+.tm-newpost textarea {
+	height: 200px;
+}
+
+main section.uk-container article.tm-article {
+	width: 50%;
+}

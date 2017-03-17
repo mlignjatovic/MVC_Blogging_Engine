@@ -1,0 +1,42 @@
+<section class="uk-container uk-container-center uk-margin-medium">
+	<table class="uk-table">
+		<thead>
+			<tr>
+				<th>Title</th>
+				<th>Category</th>
+				<th>Date</th>
+				<th>Action</th>
+				<th>Action</th>
+			</tr>
+		</thead>	
+		<tbody>
+			
+				<repeat group="{{ @result }}" value="{{ @item }}">
+					<tr>
+						<td>{{ @item.post_title  }}</td>
+						<td>{{ @item.cat_name  }}</td>
+						<td>{{ @item.nice_date }}</td>
+						<td><a href="{{@BASE}}/admin/edit-post/{{ @item.post_id }}">Edit</a></td>
+					<check if="{{ @SESSION.user_role == 'Administrator' }}">
+						<true>	
+							<td><a href="{{@BASE}}/admin/delete-post/{{ @item.post_id }}">Delete</a></td>
+						</true>
+						<false>
+							<td><span>You are not admin</span></td>
+						</false>	
+					</check>	
+					</tr>
+				</repeat>
+			
+		</tbody>
+	</table>	
+	<a href="{{@BASE}}/admin/list-of-posts/{{ @links[0]  }}">First</a>
+		<repeat group="{{ @links }}" value="{{ @item }}">
+			
+			<check if="{{ @item>'1' && @item < count(@links) }}">
+		    	<a href="{{@BASE}}/admin/list-of-posts/{{ @item  }}">{{ @item  }}</a>
+		    </check>
+		    
+		</repeat>
+	<a href="{{@BASE}}/admin/list-of-posts/{{ count(@links) }}">Last</a>
+</section>

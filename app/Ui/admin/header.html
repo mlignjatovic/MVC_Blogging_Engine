@@ -1,0 +1,16 @@
+<header>
+	<nav class="uk-navbar uk-navbar-container">
+	<ul class="uk-navbar-nav">
+		<repeat group="{{ @menu }}" key="{{ @link }}" value="{{ @title }}">
+			<check if="{{ @URI==@BASE.@link }}">
+				<true>
+					<li class="uk-active"><a href="{{ @BASE.@link }}">{{ @title }}</a></li>
+				</true>
+				<false>
+					<li><a href="{{ @BASE.@link }}">{{ @title }}</a></li>
+				</false>
+			</check>
+		</repeat>
+	</ul>	
+	</nav>
+</header>

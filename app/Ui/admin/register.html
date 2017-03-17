@@ -1,0 +1,54 @@
+<section class="uk-container uk-container-center uk-margin-medium ">
+<div uk-grid>
+	<div class="uk-width-3-4">
+		<table class="uk-table">
+	<thead>
+			<tr>
+				<th>Username</th>
+				<th>Email</th>
+				<th>Role</th>
+				<th>Action</th>
+			</tr>
+		</thead>	
+	<repeat group="{{@users}}" value="{{@user}}">
+		<tr>
+			<td>{{@user.user_name}}</td>
+			<td>{{@user.user_email}}</td>
+			<td>{{@user.rol_name}}</td>
+			<check if="{{ @SESSION.user_role == 'Administrator' }}">
+				<true>
+					<td><a href="{{@BASE}}/admin/delete-user/{{@user.user_id}}">Delete</a></td>
+				</true>	
+				<false>
+					<td><span>You are not Admin</span></td>
+				</false>	
+			</check>	
+		</tr>		
+	</repeat>
+</table>	
+	</div>
+	<div class="uk-width-1-4 uk-padding-large">
+	<check if="{{ @SESSION.user_role == 'Administrator' }}">
+		<form class="uk-form-width-medium" action="{{@BASE}}/admin/new-user" method="post">
+			<fieldset>
+					<legend class="uk-legend uk-text-center">New User</legend>
+				<label>Username:</label>
+					<input class="uk-input" type="text" name="username">
+				<label>Password:</label>
+					<input class="uk-input" type="password" name="password">
+				<label>E-mail:</label>
+					<input class="uk-input" type="email" name="email">
+				<label>Set Role:</label>
+					<select class="uk-select" name="role">
+						<repeat group="{{@roles}}" value="{{@rol}}">
+							<option value="{{@rol.rol_name}}">{{@rol.rol_name}}</option>
+						</repeat>	
+					</select>
+			</fieldset>	
+				<input class="uk-button uk-button-secondary uk-align-center" type="submit" name="register" value="Register">
+		</form>
+	</check>
+	</div>
+	
+</div>	
+</section>
